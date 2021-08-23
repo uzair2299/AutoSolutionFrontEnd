@@ -1,0 +1,73 @@
+--install packages 
+    redux core package
+    react-redux
+--Redux store#
+  Create a Redux store that holds the complete state tree of your app.There should only be a single store in your app.
+  The only way to change the data in the store is to call `dispatch()` on it.
+  createStore() Return An object that holds the complete state of your app. The only way to change its state is by dispatching actions. You may also subscribe to the changes to its state to update the UI.
+
+--Provider (react-redux)
+The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
+Since any React component in a React Redux app can be connected to the store, most applications will render a <Provider> at the top level, with the entire app’s component tree inside of it.
+
+--dispatch(action)#
+  Dispatches an action. This is the only way to trigger a state change.
+
+
+--State
+  A state in Redux is a JavaScript object.With Redux, our application state is always kept in plain JavaScript objects and arrays. That means you may not put other things into the Redux state - no class instances, built-in JS types like Map / Set Promise / Date, functions, or anything else that is not plain JS data.
+
+--Actions
+  Actions are plain JavaScript objects that have a type field.We normally put any extra data needed to describe what's happening into the action.payload
+
+--Reducers 
+  Reducers are functions that take the current state and an action as arguments, and return a new state result.
+  Every reducer needs some initial state.
+  Reducers normally use ES6 default argument syntax to provide initial state: (state = initialState, action).
+
+
+  export default function appReducer(state = initialState, action) {
+  // The reducer normally looks at the action type field to decide what happens
+  switch (action.type) {
+    // Do something here based on the different types of actions
+    case 'todos/todoAdded': {
+      // We need to return a new state object
+      return {
+        // that has all the existing state data
+        ...state,
+        // but has a new array for the `todos` field
+        todos: [
+          // with all of the old todos
+          ...state.todos,
+          // and the new todo object
+          {
+            // Use an auto-incrementing numeric ID for this example
+            id: nextTodoId(state.todos),
+            text: action.payload,
+            completed: false
+          }
+        ]
+      }
+    }
+    default:
+      // If this reducer doesn't recognize the action type, or doesn't
+      // care about this specific action, return the existing state unchanged
+      return state
+  }
+}
+--Rules of Reducers
+They should only calculate the new state value based on the state and action arguments
+They are not allowed to modify the existing state. Instead, they must make immutable updates, by copying the existing state and making changes to the copied values.
+They must not do any asynchronous logic or other "side effects"
+
+
+--connect()#
+The connect() function connects a React component to a Redux store.
+It provides its connected component with the pieces of the data it needs from the store, and the functions it can use to dispatch actions to the store.
+connect() Parameters#
+connect accepts four different parameters, all optional. By convention, they are called:
+mapStateToProps?: Function
+mapDispatchToProps?: Function | Object
+mergeProps?: Function
+options?: Object
+
