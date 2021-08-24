@@ -221,6 +221,15 @@ export default function PersistentDrawerLeft() {
                                 <ListItemText primary="Auto Manufacturer" />
                             </ListItem>
                             </Link>
+
+                            <Link to={AUTOSOLUTIONPATH.AUTOMODEL} className={classes.link}>
+                            <ListItem button className={classes.nested}>
+                                <ListItemIcon>
+                                    <FiberManualRecordIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Auto Model" />
+                            </ListItem>
+                            </Link>
                         </List>
                     </Collapse>
                 </List>

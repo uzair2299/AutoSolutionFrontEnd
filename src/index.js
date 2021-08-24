@@ -8,13 +8,14 @@ import reportWebVitals from './reportWebVitals';
 import { ToastProvider } from "react-toast-notifications";
 
 ReactDOM.render(
-  <React.StrictMode>
+   <React.StrictMode>
     <Provider store={store}>
       <ToastProvider autoDismiss={true}>
         <App />
       </ToastProvider>
     </Provider>
-  </React.StrictMode>,
+   </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 

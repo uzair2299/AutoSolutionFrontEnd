@@ -3,6 +3,7 @@ const AUTOSOLUTIONPATH = {
     //HOME: '/',
     LOGIN: '/',
     AUTOMANUFACTURER: "/AutoManufacturer",
+    AUTOMODEL: "/AutoModel",
     DASHBOARD: '/Dashboard',
 }
 
