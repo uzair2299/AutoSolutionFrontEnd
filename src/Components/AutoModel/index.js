@@ -5,6 +5,7 @@ import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import { CssBaseline, Grid, Paper, Divider, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import { useForm } from './useForm';
+import AutoModelList from './AutoModelList';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -62,12 +63,28 @@ export default function AutoModel() {
                                     handleInputChange,
                                     resetFormControls
                                 }} />
-                            <Divider />
+
                         </Grid>
 
                     </Grid>
+
                 </Container>
+
                 <Divider />
+            </Paper>
+            <Paper className={classes.paper} elevation={0}>
+
+                <Grid container>
+                    <Grid item xs={12}>
+                        {"hello"}
+                        <AutoModelList
+                    {...{
+                        values,
+                        setValues
+                    }}
+                />
+                    </Grid>
+                </Grid>
             </Paper>
         </div>
     )
